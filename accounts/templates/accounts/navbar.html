@@ -1,0 +1,108 @@
+{% extends "accounts/html_layout.html"%}
+
+{% block style %}
+
+*,body
+                {
+                margin: 0px;
+                padding : 0px;
+                box-sizing : border-box;
+                font-family: 'Baloo', cursive;
+                
+                }
+
+nav >ul.navbar
+{
+    display: flex;
+    list-style-type: none;
+    background: black;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+  
+}
+
+.navbar >li
+{
+    margin: 10px;
+    padding: 10px;
+}
+
+.navbar>li>a
+{
+  color : white;
+  text-decoration : none;
+}
+
+.navbar>li>a:hover 
+{
+    color: whitesmoke;
+    border-bottom : 5px solid cyan;
+    transition : .5s;   
+    
+}
+
+.navbar>li:hover
+{
+    margin-left : 20px; 
+
+    transition : 1s;    
+    transform: scale(1.1);
+}
+
+
+
+
+@media screen and (max-width: 700px) 
+{
+    
+
+    nav >ul.navbar
+  {
+  
+    flex-direction : column;
+    height : 250px;
+  }
+
+  .navbar >li 
+  {
+    margin: 0px;
+    padding: 10px;
+    }
+
+    .navbar>li>a:hover {
+        color: whitesmoke;
+        border-left: 5px solid cyan;
+        border-bottom : 0px;
+        padding-left : 10px;
+    }
+    
+  
+  }
+{% endblock style %}
+
+
+{% block body %}
+
+  <nav>
+    <ul class="navbar">
+      <li><a href="{% url 'index'%}">Home</a></li>
+
+      {% if user.is_authenticated %}
+      <li><a href="{% url 'logout' %}">Logout</a></li>
+
+      {% else %}
+      <li><a href="{% url 'login' %}">Login</a></li>
+      <li><a href="{% url 'register' %}">Signup</a></li>
+      {% endif %}
+
+      <li><a href="#">About</a></li>
+
+    </ul>
+    {% if user.is_authenticated %}
+        <li style="color : red; list-style-type:none; margin-left:10px;font-size:5vh;"> Hi,{{request.user|upper}} </li> 
+   {% endif %}
+  </nav>
+
+{% endblock body %}

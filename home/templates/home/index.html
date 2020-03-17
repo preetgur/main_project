@@ -1,0 +1,153 @@
+{% extends 'accounts/html_layout.html'%}
+
+{% block title %} Home Page {% endblock title%}
+
+{% block style %}
+
+.container
+{
+    display: grid;
+    grid-template-areas :
+                            " sidebar article"
+                            " footer footer";
+
+    grid-template-columns : 1fr 3fr;
+    grid-template-rows : auto auto;
+}
+
+.sidebar
+{
+    grid-area: sidebar; 
+    border : 1px solid black;
+    z-index: 9999;
+}
+
+.navbar >li {
+    margin: 10px;
+    padding: 10px;
+    background: black;
+    cursor : pointer;
+}
+
+.article
+{
+    grid-area : article;
+    border : 1px solid green;
+
+}
+
+.footer
+{
+    grid-area: footer;
+    border : 1px solid red;
+    height: auto;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+
+   
+
+}
+
+.footer > .section
+{
+ display: grid;
+
+     grid-template-areas :
+                            " left  right"
+                            " center center"
+                            ;
+
+    grid-template-rows: 135px auto;
+    justify-items: center;
+    align-items: flex-start;
+    border: 2px solid;
+}
+}
+
+.footer > .section >.left 
+{   
+    grid-area : left;
+    border : 1px dashed black;
+    height : 20px;
+}
+
+.footer > .section >.right 
+{
+     grid-area : right;
+    border : 1px dashed black;
+    height : 30px;
+
+}
+
+button.btn {
+  
+    display: block;
+    font-size: 15px;
+    margin: auto;
+    margin-top: 10px;
+
+}
+
+div.block
+{
+         grid-area : center;
+         text-align:center;
+        background: black;
+        color: white;
+
+}
+
+
+
+
+{% endblock style%}
+
+
+{% block body %}  
+    
+    {% include "accounts/navbar.html"%}
+
+    <div class="container">
+
+        <div class="sidebar"> 
+            <h3 style="text-align:center;">Django Projects</h3>
+             <ul class="navbar">
+                <li><a href="{% url 'ems_index'%}">Employee Management</a></li>
+                <li><a href="#">Ekart</a></li>
+                <li><a href="#">E-Pass</a></li>
+                <li><a href="#">Dennis</a></li>
+
+             </ul>
+         </div>
+        <div class="article"> article</div>
+
+        <div class="footer">
+
+            <div class="section">
+                <div class="left">Left Side Fotter</div>
+
+                    <div class="right"> 
+                        <h3 style="text-align:center;">Contact us</h3>
+                        <form action="">
+                            
+                                Your Name : <input type="text"> <br>
+                                Your Email : <input type="email"><br>
+                                        
+                                <button type="submit" class="btn"> Send</button> <br>
+                        
+                        </form>
+                    </div>
+                </div>
+
+          
+                <div class="block">
+                    <p> copyright all rights are reserved </p>
+                </div>
+          
+            
+ 
+    
+    </div>
+{% endblock body%}

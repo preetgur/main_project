@@ -1,0 +1,55 @@
+{% extends 'accounts/html_layout.html' %}
+
+{% block title %} Employee Management System {% endblock title%}
+{% block style %}  
+    h2{
+        margin-left : 20px;
+    }
+
+    .row
+    {
+        display :flex;
+        justify-content : space-around;
+        align-items : center;
+        height : 200px;
+        border : 1px solid black;
+    }
+
+    .ems_ul>li
+    {
+        list-style-type : none;
+        margin: 15px;
+
+    }
+
+    .ems_ul>li>a
+    {
+       text-decoration: none;
+    padding: 5px;
+    border-radius: 6px;
+    background: black;
+    color: white;
+
+    }
+{% endblock style%}
+
+{% block body %}  
+
+{% include "accounts/navbar.html"%}
+
+    <h2>Employee Management System </h2>
+
+    <div class="container">
+        <div class="row">
+
+        <ul class="ems_ul">
+            <li> <a href="{% url "all_employees" %}">Admin Account</a></li>
+            <li> <a href="{% url "employee_profile" %}">Employee Account</a></li>
+
+            
+        </ul>
+
+        <p>Note. If You are Admin user only then you can access the given links.</p>
+        </div>
+    </div>
+{% endblock body %}

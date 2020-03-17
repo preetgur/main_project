@@ -1,0 +1,54 @@
+{% extends 'accounts/html_layout.html' %}
+
+{% block title %} All Employees{% endblock title%}
+
+{% block links %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+{% endblock links %}
+
+{% block style %}
+
+.img
+{
+    width: 200px;
+    height : 200px;
+    border : 1px solid black;
+    border-radius : 50%;
+}
+
+{% endblock style%}
+
+{% block body %}
+
+{% include "accounts/navbar.html"%}
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-3 bg-info mx-auto"> 
+    
+            <div class="img"> 
+                <img src="">
+            </div>
+            <p>{{request.user}}</p>
+            <p>{{request.user.email}}</p>
+
+        </div>
+
+        <div class="col-md-8">
+            another info
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+{% endblock body %}

@@ -1,0 +1,132 @@
+{% extends 'accounts/html_layout.html'%}
+
+{% block title %} Register {% endblock title%}
+
+{% block style %}
+
+*,body
+{
+margin: 0px;
+padding : 0px;
+box-sizing : border-box;
+font-family: 'Baloo', cursive;
+
+}
+
+h1
+{   
+    margin-top :10px;
+    text-align:center;
+}
+
+.register
+{
+    display: flex;
+    justify-content: center;
+    background: bisque;
+}
+
+.form
+{
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    text-align: end;
+    background: black;
+    color: white;
+    border-radius: 15px;
+   
+}
+
+.form-group
+{
+    border: 1px dashed black;
+    padding: 5px;
+    margin: 10px;
+    font-size: 20px;
+}
+
+
+label 
+{
+    margin: 12px;
+}
+
+
+input
+{
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+button
+{
+    font-size: 20px;
+    border: 1px solid black;
+    display: block;
+    margin: auto;
+    padding: 5px;
+    border-radius: 4px;
+    background: darkslategrey;
+    color: black;
+    cursor : pointer;
+}
+
+button:hover
+{
+    color : white;
+    border : 2px solid black;
+    outline: 2px solid white;
+    border-radius: 4px;
+}
+
+
+.errorlist
+{
+    color : red;
+  
+}
+
+{% endblock style %}
+
+{% block body %}
+
+{% include "accounts/navbar.html "%}
+
+<h1>Register</h1>
+<div class="register">
+    <form action="" method="Post" class="form">
+        {% csrf_token %}
+
+
+        <div class="form-group">
+            <label for="">{{form.username.name}}</label>
+            {{form.username}}  
+        </div>
+
+        <div class="form-group">
+            <label for="">{{form.email.name}}</label>
+            {{form.email}}
+        </div>
+
+        <div class="form-group">
+            <label for="">Password</label>
+            {{form.password1}}
+        </div>
+
+        <div class="form-group">
+            <label for="">Confirm Password</label>
+            {{form.password2}}
+        </div>
+        
+        {{form.errors}}
+       
+        {{form.errors.name}}
+        <button type="submit">Register</button>
+       
+    </form>
+</div>
+
+
+{% endblock body %}

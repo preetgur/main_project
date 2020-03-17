@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title> {% block title %} Html Template   {% endblock title %} </title>
+    <style> {% block style %}  
+            *,body
+                {
+                margin: 0px;
+                padding : 0px;
+                box-sizing : border-box;
+                font-family: 'Baloo', cursive;
+                
+                }
+ {% endblock style %}  </style>
+
+    {% block links %}  
+    <link href="https://fonts.googleapis.com/css?family=Baloo&display=swap" rel="stylesheet"> 
+    {% endblock links%}
+    
+</head>
+<body>
+
+        {% block body %}  {% endblock body%}
+        {% block script %}  {% endblock script %}
+</body>
+</html>
